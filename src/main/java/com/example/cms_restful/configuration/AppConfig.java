@@ -28,7 +28,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
@@ -82,7 +81,7 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("com.codegym.cms.model");
+        em.setPackagesToScan("com.example.cms_restful.model");
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -94,7 +93,7 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/cms_restful?createDatabaseIfNotExist=true&useUnicode=yes&characterEncoding-UTF-8");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/lolo");
         dataSource.setUsername("root");
         dataSource.setPassword("200525081997");
         return dataSource;
@@ -113,5 +112,4 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
         return properties;
     }
-
 }
